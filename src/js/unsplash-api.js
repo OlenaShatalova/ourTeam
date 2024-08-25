@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function getPhotos(query) {
+export async function getPhotos(query) {
   const BASE_URL = 'https://api.unsplash.com';
   const END_POINT = '/search/photos';
   const KEY = 'LxvKVGJqiSe6NcEVZOaLXC-f2JIIWZaq_o0WrF8mwJc';
