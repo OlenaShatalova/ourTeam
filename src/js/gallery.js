@@ -1,12 +1,13 @@
 import { refs } from './refs';
 import { getPhotos } from './unsplash-api';
 import { createGallery } from './createGallary';
-
+import { showLoader, hideLoader } from './loader';
 refs.form.addEventListener('submit', onSubmit);
 
 async function onSubmit(event) {
   event.preventDefault();
   refs.list.innerHTML = '';
+  showLoader();
   const searchQuery = event.currentTarget.elements.query.value.trim();
   if (searchQuery === '') {
     return alert('Запит пустий');
@@ -21,6 +22,7 @@ async function onSubmit(event) {
   } catch (error) {
     console.log(error);
   } finally {
+    hideLoader();
     event.target.reset();
   }
 }
